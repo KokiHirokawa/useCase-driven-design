@@ -22,19 +22,18 @@ class WishList <<S, silver>>
 class Customer <<S, silver>>
 class CustomerAccount <<S, silver>>
 class CustomerRating <<S, silver>>
-/'
-    BookDetail を採用
-
-    class Book <<S, silver>>
-'/
+class Book <<S, silver>>
 class BookList <<S, silver>>
 /'
     MasterBookCatalog を採用
 
     class BookCatalog <<S, silver>>
 '/
-class BookDetail <<S, silver>>
-class BookDetail <<S, silver>>
+/'
+    Book を採用
+
+    class BookDetail <<S, silver>>
+'/
 class BookReview <<S, silver>>
 class ShoppingCart <<S, silver>>
 /'
@@ -59,7 +58,12 @@ class ShippingFulfillmentSystem <<S, silver>>
 '/
 class PurchaseOrder <<S, silver>>
 class Seller <<S, silver>>
-class Item <<S, silver>>
+/'
+    LineItem（取り扱い品目）に変更
+
+    class Item <<S, silver>>
+'/
+class LineItem <<S, silver>>
 class EditorialReview <<S, silver>>
 /'
     MasterBookCatalog を採用
@@ -105,5 +109,27 @@ hide members
 
     Book .. Item
 '/
+
+' 以下、書籍に掲載されたクラス図
+Customer *.. CustomerAccount
+MasterAccountList *.. CustomerAccount
+Customer *.. CustomerRating
+MasterAccountList *.. Order
+Order *.. Checkout
+Order *.. PurchaseOrder
+Order *.. CreditCard
+ShoppingCart *.. Order
+ShoppingCart *.. LineItem
+
+Book *.. Author
+Book *.. Category
+Book *.. BookReview
+Book *.. EditorialReview
+BookList *.. Book
+SearchResult *.. Book
+MasterBookCatalog *.. Book
+WishList *.. Book
+MiniCatalog *.. Book
+Seller *.. MiniCatalog
 
 @enduml
