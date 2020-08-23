@@ -15,7 +15,6 @@ class Book <<S, silver>>
 class BookList <<S, silver>>
 class BookCatalog <<S, silver>>
 class BookDetail <<S, silver>>
-class BookDetail <<S, silver>>
 class BookReview <<S, silver>>
 class ShoppingCart <<S, silver>>
 class Bookstore <<S, silver>>
@@ -50,7 +49,7 @@ Book .. BookDetail
 
 /'
     「書籍一覧」は異なるタイプの一覧を包括的に表すための単語だと思われる
-    
+
     BookList .. BookCatalog
 '/
 
