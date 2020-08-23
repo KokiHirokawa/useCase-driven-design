@@ -40,6 +40,8 @@ class ReviewComment <<S, silver>>
 
 hide members
 
+
+' 調査した単語の洗い出し
 AccountList .. MasterAccountList
 CustomerAccount .. UserAccount
 MasterCatalog .. MasterBookCatalog

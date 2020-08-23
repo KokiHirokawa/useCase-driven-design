@@ -1,0 +1,64 @@
+@startuml
+
+class AccountList <<S, silver>>
+class Internet <<S, silver>>
+class Category <<S, silver>>
+class Keyword <<S, silver>>
+class CreditCard <<S, silver>>
+class SearchMethod <<S, silver>>
+class SearchResult <<S, silver>>
+class WishList <<S, silver>>
+class Customer <<S, silver>>
+class CustomerAccount <<S, silver>>
+class CustomerRating <<S, silver>>
+class Book <<S, silver>>
+class BookList <<S, silver>>
+class BookCatalog <<S, silver>>
+class BookDetail <<S, silver>>
+class BookDetail <<S, silver>>
+class BookReview <<S, silver>>
+class ShoppingCart <<S, silver>>
+class Bookstore <<S, silver>>
+class Checkout <<S, silver>>
+class Title <<S, silver>>
+class Order <<S, silver>>
+class Author <<S, silver>>
+class AssociatePartner <<S, silver>>
+class Database <<S, silver>>
+class ShippingFulfillmentSystem <<S, silver>>
+class Password <<S, silver>>
+class PurchaseOrder <<S, silver>>
+class Seller <<S, silver>>
+class Item <<S, silver>>
+class EditorialReview <<S, silver>>
+class MasterCatalog <<S, silver>>
+class MiniCatalog <<S, silver>>
+class MasterAccountList <<S, silver>>
+class UserAccount <<S, silver>>
+class MasterBookCatalog <<S, silver>>
+class ReviewComment <<S, silver>>
+
+hide members
+
+' 重複した単語の洗い出し
+CustomerAccount .. UserAccount
+AccountList .. MasterAccountList
+BookReview .. ReviewComment
+BookCatalog .. MasterCatalog
+MasterCatalog .. MasterBookCatalog
+Book .. BookDetail
+
+/'
+    「書籍一覧」は異なるタイプの一覧を包括的に表すための単語だと思われる
+    
+    BookList .. BookCatalog
+'/
+
+/'
+    「品目」という単語は曖昧でぼんやりしているが、ショッピングカートに入れるモノを表している
+    購入日時など本には直接的に関係のない属性が付与される可能性がある
+
+    Book .. Item
+'/
+
+@enduml
